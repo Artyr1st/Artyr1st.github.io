@@ -12,16 +12,17 @@
     let startBox = document.createElement('div');
     document.body.append(startBox);
 
-    function draw(size) {
+    function draw(size, parentBox) {
         if(size > 10) {
         let box = document.createElement('div');
         box.style.width = size + 'px';
         box.style.height = size + 'px';
         box.style.border = '1px solid green';
-        document.body.append(box);
-        draw(size/2);
+        box.style.transform = 'rotate(10deg)';
+        parentBox.append(box);
+        draw(size/2, box);
     }
 }
-    draw(500);
+    draw(500, startBox);
 </script>
 </html>
